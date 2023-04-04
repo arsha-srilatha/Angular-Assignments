@@ -1,0 +1,19 @@
+/* You can add global styles to this file, and also import other style files */
+body{
+    text-align: center;
+}
+
+hr{
+    border: none;
+}
+
+.alert{
+    margin:auto;
+    text-align: center;
+    vertical-align: middle;
+    font-weight: bold;
+    font-size: 40px;
+    padding: 10px;
+    height: 100px;
+    width: 600px; 
+}

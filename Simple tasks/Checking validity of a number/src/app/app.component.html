@@ -1,0 +1,15 @@
+<h1>Enter a number from 0 to 100</h1>
+<hr>
+<div style="margin: auto;">
+  <input type="number" [(ngModel)]="value">
+  <div> The value entered: {{value}}</div>
+  <hr>
+  <button class="btn btn-primary" (click)="checkValidity(value)">Check Validity</button>
+  <hr>
+  <div *ngIf="isValid && checked">
+    <app-success></app-success>
+  </div>
+  <div *ngIf="!isValid && checked">
+    <app-warning></app-warning>
+  </div>
+</div>
