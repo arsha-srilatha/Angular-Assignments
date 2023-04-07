@@ -1,11 +1,19 @@
-<h1>Enter a number from 0 to 100</h1>
+<h1>Enter a number from 1 to 100</h1>
 <hr>
 <div style="margin: auto;">
-  <input type="number" [(ngModel)]="value">
+  <!--Input data using two way binding-->
+  <input type="number" [(ngModel)]="value" (click)="checked = false;">
+  <span>
+    <button class="btn btn-primary" style="margin:10px;" 
+    [disabled]="value == 0? true:false" (click)="reset()">Reset</button>
+  </span>
+  <!--Output data using string interpolation-->
   <div> The value entered: {{value}}</div>
   <hr>
+  <!--Check validity of user data using event binding-->
   <button class="btn btn-primary" (click)="checkValidity(value)">Check Validity</button>
   <hr>
+  <!--Element displayed based on validity of user input using ngIf directive-->
   <div *ngIf="isValid && checked">
     <app-success></app-success>
   </div>
