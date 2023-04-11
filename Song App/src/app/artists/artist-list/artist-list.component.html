@@ -1,0 +1,23 @@
+<!--Button to add a new Artist in the list-->
+<div class="row">
+    <div class="col-xs-12">
+        <button class="btn btn-success">New Artist</button>
+    </div>
+</div>
+<hr>
+<!--Display the list of artists using ngFor directive-->
+<div class="row">
+    <div class="col-xs-12">
+        <a href="#" class="list-group-item clearfix artist-list-box" *ngFor="let artist of artists">
+            <div class="pull-left" style="float:left">
+                <h4 class="list-group-item-heading">{{artist.name}}</h4>
+                <p class="list-group-item-text">{{artist.description}}</p>
+            </div>
+            <span class="pull-right" style="float:right;">
+                <img [src]="artist.imagePath" alt="Image" class="image-responsive artist-image" >
+            </span>
+        </a>
+        <app-the-artist></app-the-artist>
+    </div>
+</div>
+

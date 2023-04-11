@@ -1,0 +1,31 @@
+<nav class="navbar navbar-expand-sm bg-primary navbar-dark">
+    <div class="container-fluid">
+        <!--Heading of the current page-->
+      <a class="navbar-brand" href="#">Artist Collection</a>
+      <!--To display sandwich button when screen size is small-->
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="collapsibleNavbar">
+        <!--List of pages to navigate to-->
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" href="#">Artists</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Playlist</a>
+          </li>  
+        </ul>
+        <!--A dropdown button to perform functions on the song list-->
+        <ul class="navbar-nav navbar-right ms-auto">
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Manage</a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="#">Save song</a></li>
+                  <li><a class="dropdown-item" href="#">Fetch song</a></li>
+                </ul>
+            </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
