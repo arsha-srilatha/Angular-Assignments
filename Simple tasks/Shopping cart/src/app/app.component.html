@@ -1,0 +1,20 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12">
+      <!--Fields to enter the shopping item details-->
+      <app-cockpit (addItem)="ItemAdded($event)" (addGrocery)="GroceryAdded($event)"></app-cockpit>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-12">
+      <p class="text-info">The number next to the item indicates the count of addition ina single round and not the index number.</p>
+      <p>Total number of items: {{shoppingItems.length}}</p>
+      <!--Display the shopping item details-->
+      <app-shopping-item *ngFor="let items of shoppingItems, let i=index;" [shoppingElement]="items">
+        <!--To project the below span element to shopping-item component using ng-content-->
+        <div #listNumber>Item no: {{i+1}}</div>
+        <button clas="btn btn-danger" (click)="onDeleteClicked(i)">Delete</button>
+      </app-shopping-item>
+    </div>
+  </div>
+</div>

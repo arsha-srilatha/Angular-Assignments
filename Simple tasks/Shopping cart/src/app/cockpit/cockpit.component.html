@@ -1,0 +1,20 @@
+<div class="row">
+    <div class="col-sm-7">
+        <h5>My shopping cart:</h5>
+        <!--Fields to add shopping details-->
+        <!--User input using two way databinding-->
+        <label for="addItem">Add Item</label>
+        <br>
+        <input type="text" name="addItem" id="addItem" class="form-control" [(ngModel)]="itemname">
+        <hr>
+        <!--User input using local marker-->
+        <label for="addNumber">Add Quantity</label>
+        <br>
+        <input type="text" name="addNumber" id="addNumber" class="form-control" #quantityValue>
+        <hr>
+        <!--Buttons to add shopping item details-->
+        <button class="btn btn-primary" (click)="onAddItem(quantityValue)">Add Item</button>
+        <button class="btn btn-primary" (click)="onAddGrocery()">Add Grocery</button>
+        <button class="btn btn-primary" (click)="onReset()">Reset</button>
+    </div>
+</div>

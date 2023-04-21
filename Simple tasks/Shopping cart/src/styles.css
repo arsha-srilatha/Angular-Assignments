@@ -1,0 +1,18 @@
+/*All global styles are added here */
+@import "~bootstrap/dist/css/bootstrap.min.css";
+body {
+    margin: auto;
+    box-sizing: border-box;
+}
+
+hr{
+    border: none;
+}
+
+label{
+    font-weight: bold;
+}
+
+button {
+    margin: 3px;
+}
