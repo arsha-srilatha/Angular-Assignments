@@ -1,0 +1,8 @@
+.even{
+    margin: 5px;
+    width: 60px;
+    height: 30px;
+    background-color: lightgreen ;
+    border: 1px solid green;
+    float:left;
+}

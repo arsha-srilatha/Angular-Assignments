@@ -1,0 +1,8 @@
+.odd{
+    margin: 5px;
+    width: 60px;
+    height: 30px;
+    background-color: aquamarine;
+    border: 1px solid blue;
+    float: right;
+}

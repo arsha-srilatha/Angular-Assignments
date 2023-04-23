@@ -1,0 +1,14 @@
+/*All global styles are added here */
+body {
+    margin: auto; 
+    box-sizing: border-box;
+    text-align: center;
+}
+
+hr{
+    border: none;
+}
+
+button {
+    margin: 3px;
+}
