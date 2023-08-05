@@ -1,2 +1,5 @@
 **RECIPE BOOK VERSIONS**
-_V1_ - Overall structure of app.
+1. _V1_
+   - Overall folder structure of app.
+   - Overall apperance of app.
+   - Uses basics like components, built-in directives, databinding and models.
