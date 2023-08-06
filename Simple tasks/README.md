@@ -8,3 +8,6 @@
   - counter game with Start, Stop and Reset options.
   - the numbers will be displayed in a mirrored number with odd-even distinction.
   - uses @Input and @Output for communication among components.
+4. Another number count game.
+  - same logic as above.
+  - uses simple logic.
