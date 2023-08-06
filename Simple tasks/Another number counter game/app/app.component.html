@@ -1,0 +1,17 @@
+<div class="container">
+  <div class="row">
+    <h1>Counter Game</h1>
+    <div class="col-xs-12">
+      <app-game-control (gameStart)="onStart()" (gameStop)="onStop()" (gamePause)="onPause()"></app-game-control>
+    </div>
+  </div>
+  <hr>
+  <div class="row">
+    <div class="col-xs-5">
+      <app-odd *ngFor="let num of oddNo" [odd]="num"></app-odd>
+    </div>
+    <div class="col-xs-5">
+      <app-even *ngFor="let num of evenNo" [even]="num"></app-even>
+    </div>
+  </div>
+</div>
