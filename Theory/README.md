@@ -8,3 +8,7 @@
   - Custom event binding - @Output
   - @ViewChild, @ContentChild
   - Lifecycle hooks
+3. Directives
+  - Custom Attribute Directives
+  - Custom Structural Directive
+  - ngSwitch
