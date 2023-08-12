@@ -1,0 +1,5 @@
+<div *ngFor="let favorite of favorites">
+    <div class="panel panel-default" [ngStyle]="{'background-color': favorite.color }">
+        <div class="panel-body">{{favorite.category}} : {{favorite.item}}</div>
+    </div>
+</div>
