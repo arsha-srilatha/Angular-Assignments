@@ -12,3 +12,7 @@
   - Custom Attribute Directives
   - Custom Structural Directive
   - ngSwitch
+4. Services
+  - Service creation
+  - Dependency Injection
+  - Cross-component communication
