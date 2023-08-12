@@ -8,3 +8,5 @@
    - Added basic functionality using @Input, @Output and @ViewChild
 3. _V1.2_
    - Added dropdown button using custom Attribute Directive.
+4. _V2.0_
+   - Added cross-component communication using services.
