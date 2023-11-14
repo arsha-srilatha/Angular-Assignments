@@ -1,0 +1,21 @@
+<!--Button to show how paths would work in Angular-->
+<!--button class="btn btn-primary" (click)="onClick()">Reload page</button-->
+<div class="row">
+    <div class="col-md-6">
+        <button class="btn btn-danger" (click)="onDelete()">Delete</button>
+        <button class="btn btn-success" (click)="onAdd()">Add</button>
+        <button class="btn btn-primary" (click)="onEdit()">Edit</button>
+        <hr>
+        <div *ngFor="let employee of employees; let i =index"
+            [routerLink]="'./employee/'+employee.id+'/'+employee.name">
+            <div class="panel panel-default" (click)="selectedEmployee=i" [ngStyle]="{'backgroundColor': selectedEmployee==i? 'lightblue' :'transparent'}">
+                <p class="panel-heading">ID: {{employee.id}}</p>
+                <p class="panel-text" style="padding-left: 3px;">   {{employee.name}}</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <router-outlet></router-outlet>
+    </div>
+</div>
+

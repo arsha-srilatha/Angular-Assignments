@@ -1,0 +1,11 @@
+<div class="panel panel-default" *ngFor="let name of employees">
+    <div class="panel-body">
+        <p style="padding-left: 5px; font-weight: bold; color: darkblue; font-size: medium;">{{name}}</p>
+        <div style="padding-left: 5px;">
+            <label for="duties">Duty:  </label>
+            <select [disabled]="!editMode" name="duties" id="duties">
+            <option *ngFor="let duty of duties" value="duty">{{duty}}</option>
+            </select>
+        </div>
+    </div>  
+</div>

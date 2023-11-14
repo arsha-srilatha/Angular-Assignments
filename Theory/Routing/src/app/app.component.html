@@ -1,0 +1,25 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
+      <ul class="nav nav-tabs">
+        <li role="presentation" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+          <a routerLink="/">Home</a>
+          <!--routerLinkActive would apply active to all the links in the path including empty path. 
+          So, Home tab would always be active. Adding routerLinkActiveOptions would ensure class be active only when exact path is true.-->
+        </li>
+        <li role="presentation" routerLinkActive="active"><a routerLink="/employee-details">Employees</a></li>
+        <li role="presentation" routerLinkActive="active"><a [routerLink]="['/on-duty']">On Duty</a></li>
+        <!--Providing href="/employee-details" would load the respective component but it will reload the app as a whole.-->
+        <!--Providing '/on-duty' will append the path to the localhost:4200.
+            Providing 'on-duty' or './on-duty' will append to existing path.
+            Here, it would not make a difference as this is the root component and either would result in same path.-->
+      </ul>
+    </div>
+  </div>
+  <hr>
+  <div class="row">
+    <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>
