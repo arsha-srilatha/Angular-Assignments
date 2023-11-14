@@ -16,3 +16,10 @@
   - Service creation
   - Dependency Injection
   - Cross-component communication
+5. Routing
+  - Setting up routes
+  - Navigation - router links and programmatically
+  - Route parameters
+  - Query params and Fragments
+  - Nested routes
+  - Guards and Resolvers
