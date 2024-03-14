@@ -1,0 +1,13 @@
+.success{
+    margin:auto;
+    text-align: center;
+    vertical-align: middle;
+    font-weight: bold;
+    font-size: 40px;
+    padding: 10px;
+    height: 100px;
+    width: 600px;
+    color: green;
+    border: 1px solid darkgreen;
+    background-color: lightgreen;
+}

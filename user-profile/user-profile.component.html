@@ -1,0 +1,153 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12 col-md-6">
+      <p style="font-weight: bold">
+        A template driven form that takes input from user to create a
+        user-profile.
+      </p>
+      <form (ngSubmit)="onSubmit()" #f="ngForm">
+        <div
+          class="form-group"
+          style="border: 5px solid grey; padding: 5px; border-radius: 5px"
+          ngModelGroup="userData"
+          #userData="ngModelGroup"
+        >
+          <label for="email">Email</label>
+          <input
+            type="text"
+            id="email"
+            class="form-control"
+            ngModel
+            name="email"
+            required
+            email
+            #email="ngModel"
+          />
+          <p *ngIf="email.invalid && email.touched">
+            Please enter a valid email address!!
+          </p>
+          <label for="username">Username</label>
+          <input
+            type="text"
+            id="username"
+            class="form-control"
+            ngModel
+            name="username"
+            required
+          />
+          <p *ngIf="userData.invalid && userData.touched">
+            User Data Invalid!!
+          </p>
+        </div>
+        <div class="form-group">
+          <label for="subscription">Subscriptions</label>
+          <select
+            id="subscription"
+            class="form-control"
+            [ngModel]="'basic'"
+            name="subscription"
+          >
+            <option value="basic">Basic</option>
+            <option value="advanced">Advanced</option>
+            <option value="pro">Pro</option>
+          </select>
+        </div>
+        <hr />
+        <button class="btn btn-primary" type="submit" [disabled]="!f.valid">
+          Submit
+        </button>
+      </form>
+      <p
+        *ngIf="submitted"
+        style="
+          font-size: 24px;
+          background-color: rgba(231, 221, 221, 0.7);
+          padding: 3px;
+        "
+      >
+        Hi!! {{ userAdded }}
+      </p>
+    </div>
+    <div *ngIf="userAdded" class="col-sm-12 col-md-6">
+      <p style="font-weight: bold">
+        A reactive form that lets user update project details after creating
+        user profile.
+      </p>
+      <form [formGroup]="projectForm" (ngSubmit)="onSubmitProject()">
+        <div class="form-group" formGroupName="projectData">
+          <label for="username">User Name</label>
+          <input
+            type="text"
+            id="username"
+            class="form-control"
+            formControlName="username"
+          />
+          <p *ngIf="getErrorsUserName()">Username should not be changed.</p>
+          <label for="projectname">Project Name</label>
+          <input
+            type="text"
+            id="projectname"
+            class="form-control"
+            formControlName="projectname"
+          />
+          <p
+            *ngIf="
+              projectForm.get('projectData.projectname').invalid &&
+              projectForm.get('projectData.projectname').touched
+            "
+          >
+            Please enter project name!!
+          </p>
+          <label for="email">Email</label>
+          <input
+            type="text"
+            id="email"
+            class="form-control"
+            formControlName="email"
+          />
+          <p
+            *ngIf="
+              projectForm.get('projectData.email').invalid &&
+              projectForm.get('projectData.email').touched
+            "
+          >
+            Please enter a valid email address!!
+          </p>
+          <!--p
+            *ngIf="
+              projectForm.get('projectData.email').valid &&
+              projectForm.get('projectData.email').value != userEmail
+            "
+          >
+            The email should match the profile email!!
+          </p-->
+          <p *ngIf="getErrorsEmail()">
+            The email should match the profile email!!
+          </p>
+        </div>
+        <div class="form-group" formArrayName="tools">
+          <h4>Add tools used in the project.</h4>
+          <button class="btn btn-primary" type="button" (click)="onAddTools()">
+            Add Tools
+          </button>
+          <div class="form-group" *ngFor="let item of controls; let i = index">
+            <input type="text" class="form-control" [formControlName]="i" />
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="projectstatus">Project Status</label>
+          <select
+            id="projectstatus"
+            class="form-control"
+            formControlName="projectstatus"
+          >
+            <option value="stable">Stable</option>
+            <option value="critical">Critical</option>
+            <option value="finished">Finished</option>
+          </select>
+        </div>
+        <button class="btn btn-primary" type="submit">Submit</button>
+      </form>
+    </div>
+  </div>
+</div>

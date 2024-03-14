@@ -1,0 +1,21 @@
+<!--App to create a travel media collection-->
+<div class="container">
+    <h1>My Travel Media</h1>
+    <div class="row">
+      <div class="col-sm-12">
+        <app-entry (addMovie)="onAddMovie($event)" (songAdded)="onAddSong($event)"></app-entry>
+      </div>
+    </div>
+    <hr>
+    <div class="row">
+      <h3 style="background-color: rgb(47, 211, 42);">My Collection</h3>
+      <div class="col-md-6">
+        <app-song *ngFor="let song of songs" [mySong]="song">
+          <p #songArtist>Artist: {{song.artist}}</p><!--This area will be projected to the ng-content in the song component.-->
+        </app-song>
+      </div>
+      <div class="col-md-6">
+        <app-movie *ngFor="let movie of movies" [movie]="movie"></app-movie>
+      </div>
+    </div>
+  </div>

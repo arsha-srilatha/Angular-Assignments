@@ -1,0 +1,25 @@
+<!--Sectio for managing the user entry for the travel media collection-->
+<form style="margin-top: 10px;">
+    <!--Below button enables switching between Song and Movie Entry-->
+    <button class="btn btn-primary" (click)="changeEntry(detailInputData)">Change to {{label1}}</button>
+    <h4>Enter the details below:</h4>
+    <!--The color of h6 becomes purple from the style of song component  due to ViewEncapsulation.None-->
+    <div class="row">
+        <div class="col-sm-5 form-group">
+            <label for="name">Name</label>
+            <!--input type="text"  id="name" class="form-control" [(ngModel)]="itemName" name="itemName"-->
+            <!--name attribute should be used in input field or {standalone:true} for successfully emitting the values in strict mode-->
+            <input type="text" id="detail" class="form-control" name="detail" #nameInputData>
+        </div>
+        <div class="col-sm-2 form-group">
+            <label for="detail">{{label2}}</label>
+            <!--input type="text"  id="detail" class="form-control" [(ngModel)]="detail" name="detail"-->
+            <input type="text" id="detail" class="form-control" name="detail" #detailInputData>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-12">
+            <button class="btn btn-success" type="submit" (click)="addItem(detailInputData)" >Add to List</button>
+        </div>
+    </div>
+</form>

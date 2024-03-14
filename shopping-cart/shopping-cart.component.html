@@ -1,0 +1,20 @@
+<div class="container">
+    <div class="row">
+      <div class="col-sm-12">
+        <!--Fields to enter the shopping item details-->
+        <app-cockpit (addItem)="ItemAdded($event)" (addGrocery)="GroceryAdded($event)"></app-cockpit>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12">
+        <p>The list of item will be shown below once added.</p>
+        <p>Total number of items: {{shoppingItems.length}}</p>
+        <!--Display the shopping item details-->
+        <app-shopping-item *ngFor="let items of shoppingItems, let i=index;" [shoppingElement]="items">
+          <!--To project the below span element to shopping-item component using ng-content-->
+          <div #listNumber>Item no: {{i+1}}</div>
+          <button class="btn btn-danger" (click)="onDeleteClicked(i)">Delete</button>
+        </app-shopping-item>
+      </div>
+    </div>
+  </div>

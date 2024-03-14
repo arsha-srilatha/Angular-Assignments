@@ -1,0 +1,29 @@
+<!--Services are used for storing data and centralizing data like function calls.
+    It also enables the components to communicate with each other.-->
+    <div class="container" style="text-align: center;">
+        <div class="row">
+          <h1>My List of Favourites</h1>
+          <div class="col-xs-12">
+            <form>
+              <label for="category">Select the Category:  </label>
+              <select name="category" id="category" [(ngModel)] = 'selection'>
+                <option value="fruit">Fruits</option>
+                <option value="flower">Flowers</option>
+                <option value="color">Colors</option>
+                <option value="cuisine">Cuisine</option>
+              </select>
+              <hr>
+              <label for="userentry">Enter your favorite:    </label>
+              <input type="text" id="userentry" name ="userentry" [(ngModel)] ='userEntry'>
+            </form>
+            <button class="btn btn-primary" (click)="addData()">Add Data</button>
+            <hr>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-4"></div>
+          <div class="col-md-4">
+            <app-favorite-item></app-favorite-item>
+          </div>
+        </div>
+      </div>

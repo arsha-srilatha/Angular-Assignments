@@ -1,0 +1,22 @@
+<div class="row">
+    <div class="col-sm-6">
+        <div class="card">
+            <div class="card-body">
+                <!--To project data from the AppComponent-->
+                <ng-content></ng-content>
+                <hr>
+                <div class="row">
+                    <div class="col" class="card-title" style="font-weight: bold;">
+                        <p>{{sample + "." + element.name }}</p>
+                    </div>
+                    <div class="col" class="card-text">
+                        <p>Quantity: 
+                            <strong *ngIf="element.type === 'item'" style="color: blue">{{ element.quantity }}</strong>
+                            <em *ngIf="element.type === 'grocery'" style="color: green">{{ element.quantity }}</em>         
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,14 @@
+div.container {
+  color: rgb(231, 231, 240);
+  text-shadow: -1px 1px 0 #000, 1px 1px 0 #000, 1px -1px 0 #000,
+    -1px -1px 0 #000;
+  text-align: left;
+}
+
+input.ng-invalid.ng-touched {
+  border: 2px solid red;
+}
+
+button {
+  margin: 10px;
+}

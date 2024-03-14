@@ -1,0 +1,18 @@
+<div class="container">
+    <div class="row">
+      <h1>Counter Game</h1>
+      <p>Start counting the numbers with odd on the left and even on the right. Pause counting and Restart counting when you want.</p>
+      <div class="col-sm-12">
+        <app-game-control (gameStart)="onStart()" (gameStop)="onStop()" (gamePause)="onPause()"></app-game-control>
+      </div>
+    </div>
+    <hr>
+    <div class="row">
+      <div class="col-sm-5">
+        <app-odd *ngFor="let num of oddNo" [odd]="num"></app-odd>
+      </div>
+      <div class="col-sm-5">
+        <app-even *ngFor="let num of evenNo" [even]="num"></app-even>
+      </div>
+    </div>
+</div>

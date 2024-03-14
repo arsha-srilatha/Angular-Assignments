@@ -1,0 +1,38 @@
+<p>Numbers from 1 to 100 are allowed and stored when the number is within bounds.</p>
+<!--Button to create a feel of toggling between two pages using ngIf-->
+<button class="btn btn-primary" (click)="showValuesArray()">{{showValuesArray()}}</button>
+<div *ngIf="!showValues">
+  <h5>Enter a number from 1 to 100</h5>
+  <hr>
+  <div class="col-xs-8" style="margin: auto;">
+    <!--Input data using two way binding, uses ngClass to show whether the field is clicked or not-->
+    <input type="number" [(ngModel)]="value" (click)="checked = false;"
+    [ngClass]="{'user-value':'checked==true'}">
+    <span>
+      <button class="btn btn-primary" style="margin:10px;" 
+      [disabled]="value == 0? true:false" (click)="reset()">Reset</button>
+    </span>
+    <!--Output data using string interpolation and styled using ngStyle-->
+    <div [ngStyle]="{'color':value==0 ? 'red':'green'}"> The value entered: {{value}}</div>
+    <hr>
+    <!--Check validity of user data using event binding-->
+    <button class="btn btn-primary" (click)="checkValidity(value)">Check Validity</button>
+    <hr>
+    <!--Display whether validity is checked using if-else-->
+    <p *ngIf="checked; else checkStatus">Validity checked!!</p>
+    <ng-template #checkStatus>Validity not checked</ng-template>
+    <!--Element displayed based on validity of user input using ngIf directive-->
+    <div *ngIf="isValid && checked">
+      <app-success></app-success>
+    </div>
+    <div *ngIf="!isValid && checked">
+      <app-warning></app-warning>
+    </div> 
+  </div>
+</div>
+
+<div *ngIf="showValues" class="col-xs-4">
+  <!--Display list of valid values entered by user -->
+  <h5>List of valid values entered by user:</h5>
+  <p *ngFor="let value of values; let i=index">Value at {{i+1}} = {{value}}</p>
+</div>
