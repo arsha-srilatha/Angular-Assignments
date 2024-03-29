@@ -1,0 +1,40 @@
+<!--Button to show how paths would work in Angular-->
+<!--button class="btn btn-primary" (click)="onClick()">Reload page</button-->
+<div *ngIf="isLoading">
+  <app-loading-spinner></app-loading-spinner>
+</div>
+<div *ngIf="!isLoading" class="row">
+  <div class="col-md-6">
+    <div>
+      <button class="btn btn-primary" (click)="onAdd()">Add</button>
+      <button
+        [disabled]="selectedEmployee == -1"
+        class="btn btn-primary"
+        (click)="onEdit()"
+      >
+        Edit
+      </button>
+    </div>
+    <hr />
+    <div
+      *ngFor="let employee of employees; let i = index"
+      [routerLink]="'./employee/' + employee.id + '/' + employee.name"
+    >
+      <div
+        class="card"
+        style="margin: 5px; padding-left: 10px; font-weight: bold"
+        (click)="selectedEmployee = i"
+        [ngClass]="{
+          'bg-light text-dark': selectedEmployee == i,
+          'bg-info text-white': selectedEmployee != i
+        }"
+      >
+        <p class="card-header">ID: {{ employee.id }}</p>
+      </div>
+    </div>
+    <br />
+  </div>
+  <div class="col-md-6">
+    <router-outlet></router-outlet>
+  </div>
+</div>

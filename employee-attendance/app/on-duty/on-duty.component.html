@@ -1,0 +1,38 @@
+<ng-template appPlaceHolder></ng-template>
+<div class="row">
+  <div *ngIf="loggedIn == 0" class="col-xs-10">
+    <label for="login">Enter Employee Id:</label>
+    <input
+      type="text"
+      id="empid"
+      name="empid"
+      class="form-control"
+      [(ngModel)]="empId"
+    />
+    <button class="btn btn-primary" (click)="empLogin(true)">Login</button>
+  </div>
+  <div *ngIf="loggedIn" class="col-xs-10">
+    <button
+      class="btn btn-primary"
+      [routerLink]="['/on-duty', empId]"
+      [queryParams]="{ allowEdit: empId !== '900' ? 0 : 1 }"
+      [fragment]="'viewing'"
+    >
+      View On-Duty List
+    </button>
+    <button class="btn btn-primary" (click)="onEditDuties()">
+      Edit Duties
+    </button>
+    <button
+      class="btn btn-primary"
+      (click)="empLogin(false)"
+      [routerLink]="['/on-duty']"
+    >
+      Logout
+    </button>
+    <hr />
+    <div>
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>

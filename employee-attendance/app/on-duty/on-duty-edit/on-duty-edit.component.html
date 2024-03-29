@@ -1,0 +1,95 @@
+<div *ngIf="isLoading">
+  <app-loading-spinner></app-loading-spinner>
+</div>
+<div *ngIf="!isLoading" style="text-align: center">
+  <hr />
+  <div *ngIf="!editMode">
+    <div class="row">
+      <div class="col-sm-12 col-md-12 col-lg-6">
+        <ul class="list-group">
+          <li
+            *ngFor="let item of onDuty"
+            [ngClass]="{
+              'list-group-item-info': item.duty == 'to be assigned',
+              'list-group-item-danger': item.duty == 'absent',
+              'list-group-item-success':
+                item.duty != 'to be assigned' && item.duty != 'absent'
+            }"
+          >
+            <h4>{{ item.name }}</h4>
+            <p>{{ item.duty }}</p>
+          </li>
+        </ul>
+      </div>
+      <div class="col-sm-12 col-md-12 col-lg-6">
+        <h3>Colour Codes</h3>
+        <div style="text-align: center; color: beige">
+          <p class="list-group-item-success" style="margin: 0">Duty assigned</p>
+          <p class="list-group-item-info" style="margin: 0">
+            Duty to be assigned
+          </p>
+          <p class="list-group-item-danger" style="margin: 0">
+            Employee absent
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="editMode">
+    <div class="row">
+      <div class="col-sm-12 col-md-12">
+        <div class="row">
+          <div class="col-sm-12 col-md-6">
+            <ul class="list-group">
+              <li
+                *ngFor="let item of onDuty"
+                [ngClass]="{
+                  'list-group-item-info': item.duty == 'to be assigned',
+                  'list-group-item-danger': item.duty == 'absent',
+                  'list-group-item-success':
+                    item.duty != 'to be assigned' && item.duty != 'absent'
+                }"
+                (click)="onEdit(item)"
+              >
+                <h4>{{ item.name }}</h4>
+                <p>{{ item.duty }}</p>
+              </li>
+            </ul>
+          </div>
+          <div class="col-sm-12 col-md-6">
+            <p *ngIf="selected == ''">Select an employee!!</p>
+            <div
+              class="bg-info text-light"
+              *ngIf="selected != ''"
+              style="text-align: center"
+            >
+              <h4>{{ selected }}</h4>
+              <label for="duty">Duty :</label>
+              <select #duties id="duty" name="duty" [(ngModel)]="duty">
+                <option value="cleaning">cleaning</option>
+                <option value="inventory">inventory</option>
+                <option value="restocking">restocking</option>
+                <option value="register">register</option>
+                <option value="customer service">customer service</option>
+                <option value="warehouse">warehouse</option>
+                <option value="absent">absent</option>
+              </select>
+              <button class="btn btn-primary" (click)="onUpdate()">
+                Update
+              </button>
+            </div>
+            <div>
+              <button
+                class="btn btn-primary"
+                (click)="onSave()"
+                [disabled]="!updated"
+              >
+                Save
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
